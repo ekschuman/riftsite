@@ -1,0 +1,214 @@
+{% load staticfiles %}
+
+<link rel='stylesheet' type='text/css' href="{% static 'style.css' %}" />
+
+{% include 'header.html' %}
+
+<div class="content">
+    <div class="guide subcontent">
+        <br>
+        <h4>Take a look at the available <a href="{% url 'riftsite.views.skills_view' %}">weapon skills and spells.</a></h4>
+        <h1 align="center">Getting Started</h1>
+        <h2>Beginning</h2>
+        When you begin your new journey you will need to choose a race. Race does not limit you on skills you can learn
+        or use but may affect how some treat you. Next you will need a back story. As someone that has come through a
+        rift you will find this world much different from your own, your connection to magic severed and your body
+        feeling weak, restoring yourself will take time but it will happen. With your character setup it is time to
+        invest in some attributes.  You will have 5 skill points to distribute however you want amongst your attributes.
+        All players begin with 2 HP and 4 mana. Now you are ready to begin your journey.
+        <br>
+        <h2>Quests</h2>
+        The weeks quests will be posted the day before the event and available for sign ups on a first come first serve
+        basis. Posted quests will have a generalization of the quest, recommended party size and skill level. Quests are
+        broken into 5 categories based on suggested level of players in the party. Apprentice, for players between 1-10,
+        adept between 11-20, expert between 21-30, master between 31-40, and legendary between 41-50.  Along with
+        experience you may be rewarded with items and gold as well, both scaling with the estimated difficulty of the quest.
+        <br>
+        <h2>Leveling</h2>
+        As you quest you gain experience that will increase your level and gain skill points. Quests have various levels
+        of difficulty and you will be rewarded according to its difficulty and your performance in the quest. This can
+        be your effectiveness in combat, assisting your party or your dialogue with other characters. On the first
+        Saturday of the month you will be able to invest your skill points into your skills and attributes.
+        <br>
+        <h2>Investing in <a href="{% url 'riftsite.views.skills_view' %}">Skills and Spells</a></h2>
+
+        On the first saturday of the month you will be able to invest your skill points into your skills and attributes.
+        You will be taught how to use your new skills and what they can and can’t do. Each time you level up you will be
+        rewarded with a skill point. All skills and spells cost 2 skill points to learn. You may only invest up to 2 skill
+        points into a single attribute at a time however.
+        <br>
+        <h2>Attributes</h2>
+
+        Your attributes are what allows you to use various <a href="{% url 'riftsite.views.skills_view' %}">skills</a>, weapons and equipment. They set the parameters for
+        what you are capable of doing.
+        <div>
+            <ul>
+                <li>Vitality - How much damage your body can withstand before death.</li>
+                <li>Dexterity - How well you can control your fine movements.</li>
+                <li>Strength - Determines how much you can carry and how well you wield large equipment.</li>
+                <li>Intelligence - how well you comprehend the magical arts.</li>
+                <li>Faith - how strong your connection to the Divine is.</li>
+                <li>Endurance - your ability to perform skills in succession.</li>
+                <li>Discipline - your ability to cast spells in succession.</li>
+            </ul>
+
+        </div>
+        Not all attributes scale directly to their input. Vitality, requires 2 skill points per level up to level 5 and
+        3 points afterwards. This means that for every 2 points you invest you receive 1HP, after gaining 5 HP in this
+        manner it will require 3 points invested per 1HP gained.
+
+        <h2>Weapon Classes</h2>
+        You may wield any weapon at any time, however without the proper attributes you can not use skills for the weapon.
+        <div>
+            <ul>
+                <li>Short -- Under 30 inches in length, require 3 dex and 3 strength to use.</li>
+                <li>Regular -- Under 42 inches but more than 30, require 5 Dex and 5 strength to use.</li>
+                <li>Great -- Over 42 inches require 5 dex and 7 strength to wield. To use 1 handed you must have 7
+                    dex and 10 strength.</li>
+                <li>Pole Arm -- More than 60 inches with ½ length being handle. Require 5 dex and 5 strength to use.
+                    To use 1 handed you must have 7 dex and 7 strength.</li>
+                <li>Light bow -- 560 inch pounds, Requires 4 dex and 4 strength.</li>
+                <li>Bow -- 700 inch pounds requires 5 dex and 4 strength.</li>
+                <li>Heavy Bow -- 840 inch pounds requires 6 dex and 5 strength.</li>
+            </ul>
+
+        </div>
+
+        <h2>Equipment Classes</h2>
+
+        You may use any equipment at any time, however without the proper attributes you can't run.
+        <div>
+            <ul>
+                <li>Light Armour -- Leather or heavy cloth. Can withstand 2 hits, requires 4 strength.</li>
+                <li>Armour -- Chainmail, hardened/studded leather. Can withstand 4 hits, requires 6 strength.</li>
+                <li>Heavy Armour -- Plated Leather, Plate Maille, Dense Maille, Laminar. Can withstand 6 hits, requires 8
+                    strength.</li>
+                <li>Buckler -- Under 2 Sq Ft, requires 4 strength.</li>
+                <li>Shield -- Under 4 Sq Ft, requires 6 strength.</li>
+                <li>Greatshield -- Over 4 Sq Ft, requires 8 strength.</li>
+            </ul>
+
+        </div>
+
+
+        <h1>Magic</h1>
+
+        Magic is broken into 3 categories. Miracles, Sorceries, and elemental magic. Each has exclusive spells to master.
+        Spells do not pass through shields but do pass through armour. Sorceries require intelligence to cast and miracles
+        require faith. Elemental magic can be cast be either.
+
+        <br>
+        <h2>Magic combat</h2>
+        Spells do not go through Shields they do however go through armour and weapons. You may cast through rods and staffs but they do no more than 1 physical damage. If you try to cast and do not have the MP to cast you will have a rebound. A rebound may deal damage to the caster, but it may also damage their medium (what you use to channel magic)causing it to lose its enchantment.
+
+        <h1>Items</h1>
+        Items can be bought from merchants and sold and traded between players. All items have a 1 time use. Potions must be consumed all at once, you can not save some for later.
+        <div>
+            <ul>
+                <li>Health Potion -- Restores 2 HP.</li>
+                <li>Mana Potion -- Restores 5 MP.</li>
+                <li>Strong Health Potion -- Restores 5 HP.</li>
+                <li>Strong Mana Potion -- Restores 10 MP.</li>
+                <li>Potent Health Potion -- Fully restores HP.</li>
+                <li>Potent Mana Potion -- Fully restores MP.</li>
+                <li>Smoke Bomb -- Blinds all within 10 feet of detonation for 10 seconds.</li>
+                <li>Splint -- Mends Broken limb on HP restore.</li>
+                <li>Firebomb -- Deals 5 damage in 5 foot radius of detonation (when it hits the ground).</li>
+                <li>Soul Gem -- Capture up to common sized soul.</li>
+                <li>Large Soul Gem -- Capture any sized soul.</li>
+                <li>Scroll -- Holds a spell cast into it until opened and cast.</li>
+                <li>Blank scroll -- Cast a spell of your choice into the scroll to be used later on opening.</li>
+                <li>Restorite -- A mystical metal that can be used to repair shields and armour.</li>
+            </ul>
+        </div>
+
+
+        <h1>Combat</h1>
+
+        Hits on limb do 1 damage, hits on torso do 2 damage. Limbs do not break when hit. Regular hits to shields do not
+        break it down, only skills that cause break damage will break it down. Armour IS broken down on each strike
+        however, skills that cause Shatter damage will break it down faster, eventually shattering it.
+
+        <h1>Factions</h1>
+        A player may join multiple factions, but may not be a member of the Academy and the Church at the same time.
+        Higher ranks in a faction require more dedication to the faction, meaning that you cannot be a high rank in multiple factions at once.
+
+        <h2>Scout Regiment</h2>
+        The scout regimen do exactly that, scout. The last few decades the scouts have diminished in number with many
+        favoring The Garrison should they chose to serve. Scouts track large creature and the feral movement as well as
+        rift activity outside of the barrier. They once traveled between holds trading information and goods as well but
+        those days were long ago.
+
+        <h2>The Garrison</h2>
+        The Garrison have long protected the people should a threat appear near the barrier. Occasionally traveling
+        outside to confront threats or collect nearby resources the scouts have found. With a rift inside of the barrier
+        it could one day bring something that could end us all.
+
+        <h2>The Church</h2>
+        The church worships the divine for what they have done and consider them Gods. Though the divine are forbidden
+        to return to the plain they bestow power to those they believe will shape the land as they would. These beings
+        are referred to as the favored. Those that have gained favor with the divine are taught miracles at the church,
+        magic that the divine themselves brought to this world. Should you fail or divert from your path however you may
+        fall out of favor of the divine. This will strip you of your power.
+
+        <h2>The Academy</h2>
+        The academy was established by The Scholar to educate the people on the use of magic. Those of a sharp mind may
+        join the academy to learn about sorceries and elemental magic. Once you have joined you will be given a tome
+        from which you will channel magic. As you progress through the academy they will give you more advanced and
+        powerful tomes to cast from capable of channeling more magic. Joining the academy is a tough commitment however
+        and not to be taken lightly. Regular reports and studies will be expected to be turned in to maintain and
+        further your status in the academy. Should you fail to do so you will find your tome burned and thus your
+        connection to magic severed.
+
+        <h1>Enchanting</h1>
+
+        Weapons and equipment may be enchanted with magical properties. This could be used to increase specific
+        attributes or give the item a magical effect. Enchanting works by capturing the soul of a creature and taking
+        a specific magic or characteristic from within the soul and binding it to a physical item, the larger the soul
+        the more powerful the magic taken from it. Items can hold a very limited amount of magic based on their physical
+        size and affinity for magic.
+
+        <div>
+            <ul>
+                <li>Vanbracers -- 5 points</li>
+                <li>Greaves -- 5 points</li>
+                <li>Chest piece -- 10 points</li>
+                <li>Shield -- 10 points</li>
+                <li>Weapon -- 5 points</li>
+                <li>Ring/bracelet -- 5 points</li>
+                <li>Amulet --5 points.</li>
+                <li>Head piece -- 5 points.</li>
+            </ul>
+        </div>
+
+
+        <h2>Enchantments</h2>
+
+        <div>
+            <ul>
+                <li>Feather -- Reduces strength needed to use by 1, 3 points per level, up to level 3.</li>
+                <li>Fortify Attribute -- increases attribute by 1, 5 points per level up to level 2.</li>
+                <li>Absorb Life -- Last hit on creature restores 1HP. Weapon specific enchantment.</li>
+                <li>Absorb Mana -- Last hit on creature restores mana by 1, 5 per level up to level 2.</li>
+                <li>Learned Skill -- Can use skill. Weapon and shield specific</li>
+                <li>Learned Spell -- Can cast spell, 2 points per tier of spell, still requires mana. Jewelry specific.</li>
+                <li>Magic Resist -- Repels either ice, fire, or Lightning spells. 10 points, Armour specific.</li>
+                <li>Tempered -- +2 break/Shatter damage</li>
+            </ul>
+        </div>
+
+
+        <h2>Soul Size</h2>
+        <div>
+            <ul>
+                <li>Petty -- The weakest and stupidest creatures have petty souls, they have little magical worth, but if you collect enough you may be able to make something worthwhile.  2 points</li>
+                <li>Lesser -- Creatures of minor intelligence or fortitude have lesser souls. 4 points</li>
+                <li>Common -- Large creatures have common souls. 6 points</li>
+                <li>Greater -- Be weary of creatures with greater souls, they are of human intelligence and very formidable in combat.  8 points</li>
+                <li>Grand -- Do not attempt to combat a creature with a grand level soul, only the greatest of beasts have these souls and are not to be taken lightly. 10 points</li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>

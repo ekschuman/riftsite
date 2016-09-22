@@ -1,0 +1,21 @@
+{% load staticfiles %}
+
+<link rel='stylesheet' type='text/css' href="{% static 'style.css' %}" />
+
+{% include 'header.html' %}
+
+<div class="content">
+    <div class="factions subcontent">
+        <h1 align="center">Factions</h1>
+
+        {% for faction in factions %}
+            <div class="character_div">
+                <div class="char_name">
+                    <a href="{% url 'faction_show' faction.id %}"><h2>{{faction.name}}</h2></a>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+
+</div>

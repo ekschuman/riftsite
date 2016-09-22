@@ -1,0 +1,27 @@
+{% load staticfiles %}
+
+<link rel='stylesheet' type='text/css' href="{% static 'style.css' %}" />
+
+{% include 'header.html' %}
+
+<div class="content">
+    <div class="char_list subcontent">
+        <h1 align="center">Characters</h1>
+        {% for character in characters %}
+        <div class="character_div">
+            <div class="char_name">
+                <a href="{% url 'character_show' character.id %}">{{character.name}}</a>
+            </div>
+            <br>
+            Level: {{character.level}}<br>
+            Race: {{character.race}}<br>
+            {% if character.subrace %}
+            Subrace: {{character.subrace}}
+            {% else %}
+            Subrace: None
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+</div>

@@ -1,0 +1,102 @@
+{% load staticfiles %}
+
+<link rel='stylesheet' type='text/css' href="{% static 'style.css' %}" />
+
+{% include 'header.html' %}
+
+<div class="content">
+    <div class="char_show subcontent">
+        <div style="text-align: left; font-size: 75%;">
+            <a href="{% url 'riftsite.views.characters_view' %}"><< Characters</a>
+        </div>
+
+        <h2>{{character.name}}</h2>
+        Race: {{character.race}}<br>
+        {% if character.subrace %}
+        Subrace: {{character.subrace}}<br>
+        {% endif %}
+
+        {% for membership in memberships %}
+            <br>
+            {{membership.rank}} of the {{membership.faction}}
+            <br>
+        {% endfor %}
+
+        <br>
+        Level: {{character.level}} &nbsp Experience: {{character.exp}} / {{upper_exp}}<br>
+
+        <div class="meter">
+            <span style="width: {{experience_percent}}%"></span>
+        </div>
+
+        {% if character.points_to_spend > 0 %}
+            <br>
+            Unspent Skill Points: {{character.points_to_spend}}
+            <br>
+        {% endif %}
+
+        <br>
+        <div class="soul">
+            <b>Soul</b>
+            <br>
+            {% if character.user == user or user.is_superuser %}
+                {{character.lives}} Fragments
+                <br>
+            {% endif %}
+
+            <br>
+            <table class="stat_table">
+                <tr>
+                    <th class="body" colspan="2">Body</th>
+                    <th class="mind" colspan="2">Mind</th>
+                </tr>
+                <tr>
+                    <td class="body">HP:</td>
+                    <td class="body">{{character.hit_points}}</td>
+                    <td class="mind">Mana:</td>
+                    <td class="mind">{{character.max_mana}}</td>
+                </tr>
+                <tr>
+                    <td class="body">Vitality:</td>
+                    <td class="body">{{character.vitality}}</td>
+                    <td class="mind">Discipline:</td>
+                    <td class="mind">{{character.discipline}}</td>
+                </tr>
+                <tr>
+                    <td class="body">Strength:</td>
+                    <td class="body">{{character.strength}}</td>
+                    <td class="mind">Faith:</td>
+                    <td class="mind">{{character.faith}}</td>
+                </tr>
+                <tr>
+                    <td class="body">Dexterity:</td>
+                    <td class="body">{{character.dexterity}}</td>
+                    <td class="mind">Intelligence:</td>
+                    <td class="mind">{{character.intelligence}}</td>
+                </tr>
+                <tr>
+                    <td class="body">Endurance:</td>
+                    <td class="body">{{character.endurance}}</td>
+                    <td class="mind"></td>
+                    <td class="mind"></td>
+                </tr>
+            </table>
+        </div>
+
+        <br>
+        {% if character.user == user or user.is_superuser %}
+            <h3>Items</h3>
+            Silver: {{character.silver}}<img src='{% static "images/silver_coin.png" %}' alt="Silver" style="width:16px;height:16px;">
+            <br>
+            <br>
+
+            {% for item in items %}
+            <div class="char_item">
+                {{item.item}}<br>
+                Owned: {{item.count}}<br>
+                {{item.description}}
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

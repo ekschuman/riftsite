@@ -1,0 +1,314 @@
+{% load staticfiles %}
+
+<link rel='stylesheet' type='text/css' href="{% static 'style.css' %}" />
+
+{% include 'header.html' %}
+
+<div class="content">
+    <div class="stats subcontent">
+        <div style="width: 80%; background: #EEEEEE; border: 2px solid darkGray; border-radius: 5px; margin-left: auto; margin-right: auto; padding: 20px;">
+            <h1>Stat Calculator</h1>
+            <div style="width: 80%;">
+                Prototype stat calculator. Allows you to try out different stat builds at different levels, and see
+                what the skill point requirements are.
+            </div>
+            <br>
+            <b>Character Level:</b>
+            <button onclick="levelRemove()">-</button>
+            <label id="level-value">0</label>
+            <button onclick="levelAdd()">+</button>
+            <br>
+            HP: <label id="hp">2</label> Mana: <label id="mana">4</label>
+            <br>
+            Points to Spend: <label id="remaining-points">0</label>
+            <div style="color: red; font-style: italic;" id="error-div">
+
+            </div>
+            <br>
+            <b>Attributes:</b>
+            <br>
+            VIT:
+            <button onclick="vitRemove()">-</button>
+            <label id="vit-value">1</label>
+            <button onclick="vitAdd()">+</button>
+            <br>
+            STR:
+            <button onclick="strRemove()">-</button>
+            <label id="str-value">1</label>
+            <button onclick="strAdd()">+</button>
+            <br>
+            DEX:
+            <button onclick="dexRemove()">-</button>
+            <label id="dex-value">1</label>
+            <button onclick="dexAdd()">+</button>
+            <br>
+            END:
+            <button onclick="endRemove()">-</button>
+            <label id="end-value">1</label>
+            <button onclick="endAdd()">+</button>
+            <br>
+            INT:
+            <button onclick="intRemove()">-</button>
+            <label id="int-value">1</label>
+            <button onclick="intAdd()">+</button>
+            <br>
+            FAI:
+            <button onclick="faiRemove()">-</button>
+            <label id="fai-value">1</label>
+            <button onclick="faiAdd()">+</button>
+            <br>
+            DIS:
+            <button onclick="disRemove()">-</button>
+            <label id="dis-value">1</label>
+            <button onclick="disAdd()">+</button>
+            <br>
+            <br>
+            <b>Number of Weapon Skills:</b>
+            <button onclick="skillRemove()">-</button>
+            <label id="skill-value">0</label>
+            <button onclick="skillAdd()">+</button>
+            <br>
+            <b>Number of Spells:</b>
+            <button onclick="spellRemove()">-</button>
+            <label id="spell-value">0</label>
+            <button onclick="spellAdd()">+</button>
+            <br>
+            <br>
+            <b>Spell Tiers Unlocked:</b>
+            <br>
+            Sorcery: <label id="sorc-tier">0</label>
+            <br>
+            Miracle: <label id="mira-tier">0</label>
+            <br>
+            Elemental: <label id="elem-tier">0</label>
+            <br>
+        </div>
+    </div>
+</div>
+
+<script>
+    var levelValue = document.getElementById("level-value");
+    var remainingPoints = document.getElementById("remaining-points");
+    var hpValue = document.getElementById("hp");
+    var manaValue = document.getElementById("mana");
+
+    var vitValue = document.getElementById("vit-value");
+    var strValue = document.getElementById("str-value");
+    var dexValue = document.getElementById("dex-value");
+    var endValue = document.getElementById("end-value");
+    var intValue = document.getElementById("int-value");
+    var faiValue = document.getElementById("fai-value");
+    var disValue = document.getElementById("dis-value");
+
+    var learnedSkills = document.getElementById("skill-value");
+    var learnedSpells = document.getElementById("spell-value");
+
+    var sorcTier = document.getElementById("sorc-tier");
+    var miraTier = document.getElementById("mira-tier");
+    var elemTier = document.getElementById("elem-tier");
+
+    var error = document.getElementById("error-div");
+
+    function update() {
+        var level = parseInt(levelValue.innerHTML);
+        var vit = parseInt(vitValue.innerHTML);
+        var str = parseInt(strValue.innerHTML);
+        var dex = parseInt(dexValue.innerHTML);
+        var end = parseInt(endValue.innerHTML);
+        var int = parseInt(intValue.innerHTML);
+        var fai = parseInt(faiValue.innerHTML);
+        var dis = parseInt(disValue.innerHTML);
+        var skills = parseInt(learnedSkills.innerHTML);
+        var spells = parseInt(learnedSpells.innerHTML);
+        var sorc = parseInt(sorcTier.innerHTML);
+        var mira = parseInt(miraTier.innerHTML);
+        var elem = parseInt(elemTier.innerHTML);
+
+        var points = level + 5;
+        points = points - ( vit - 1);
+        points = points - ( str - 1);
+        points = points - ( dex - 1);
+        points = points - ( end - 1);
+        points = points - ( int - 1);
+        points = points - ( fai - 1);
+        points = points - ( dis - 1);
+        points = points - ( 2 * skills );
+        points = points - ( 2 * spells );
+        remainingPoints.innerHTML = points;
+
+        manaValue.innerHTML = dis + 3;
+        var hp = 2;
+        if ( vit <= 10) {
+            hp += Math.floor(vit / 2);
+        } else {
+            hp += 5 + Math.floor((vit - 10) / 3)
+        }
+        hpValue.innerHTML = hp;
+
+        sorc = Math.floor(int / 2);
+        mira = Math.floor(fai / 2);
+        if (int > fai) {
+            elem = Math.floor(int / 2);
+        } else {
+            elem = Math.floor(fai / 2);
+        }
+
+        sorcTier.innerHTML = sorc;
+        miraTier.innerHTML = mira;
+        elemTier.innerHTML = elem;
+
+        if (points < 0) {
+            error.innerHTML = "Not enough skill points for this setup"
+        } else {
+            error.innerHTML = "<br>"
+        }
+    }
+
+    // ----------Level
+    function levelAdd() {
+        var value = parseInt(levelValue.innerHTML);
+        if (value < 50) {
+            levelValue.innerHTML = value + 1;
+        }
+        update();
+    }
+    function levelRemove() {
+        var value = parseInt(levelValue.innerHTML);
+        if (value > 0) {
+            levelValue.innerHTML = value - 1;
+        }
+        update()
+    }
+
+    // ----------Vitality
+    function vitAdd() {
+        var value = parseInt(vitValue.innerHTML);
+        vitValue.innerHTML = value + 1;
+        update();
+    }
+    function vitRemove() {
+        var value = parseInt(vitValue.innerHTML);
+        if (value > 1) {
+            vitValue.innerHTML = value - 1;
+        }
+        update()
+    }
+
+    // ----------Strength
+    function strAdd() {
+        var value = parseInt(strValue.innerHTML);
+        strValue.innerHTML = value + 1;
+        update();
+    }
+    function strRemove() {
+        var value = parseInt(strValue.innerHTML);
+        if (value > 1) {
+            strValue.innerHTML = value - 1;
+        }
+        update()
+    }
+
+    // ----------Dexterity
+    function dexAdd() {
+        var value = parseInt(dexValue.innerHTML);
+        dexValue.innerHTML = value + 1;
+        update();
+    }
+    function dexRemove() {
+        var value = parseInt(dexValue.innerHTML);
+        if (value > 1) {
+            dexValue.innerHTML = value - 1;
+        }
+        update()
+    }
+
+    // ----------Endurance
+    function endAdd() {
+        var value = parseInt(endValue.innerHTML);
+        endValue.innerHTML = value + 1;
+        update();
+    }
+    function endRemove() {
+        var value = parseInt(endValue.innerHTML);
+        if (value > 1) {
+            endValue.innerHTML = value - 1;
+        }
+        update()
+    }
+
+    // ----------Intelligence
+    function intAdd() {
+        var value = parseInt(intValue.innerHTML);
+        if (value < 10) {
+            intValue.innerHTML = value + 1;
+        }
+        update();
+    }
+    function intRemove() {
+        var value = parseInt(intValue.innerHTML);
+        if (value > 1) {
+            intValue.innerHTML = value - 1;
+        }
+        update()
+    }
+
+    // ---------Faith
+    function faiAdd() {
+        var value = parseInt(faiValue.innerHTML);
+        if (value < 10) {
+            faiValue.innerHTML = value + 1;
+        }
+        update();
+    }
+    function faiRemove() {
+        var value = parseInt(faiValue.innerHTML);
+        if (value > 1) {
+            faiValue.innerHTML = value - 1;
+        }
+        update()
+    }
+
+    // ----------Discipline
+    function disAdd() {
+        var value = parseInt(disValue.innerHTML);
+        disValue.innerHTML = value + 1;
+        update();
+    }
+    function disRemove() {
+        var value = parseInt(disValue.innerHTML);
+        if (value > 1) {
+            disValue.innerHTML = value - 1;
+        }
+        update()
+    }
+
+    // ----------Skill Count
+    function skillAdd() {
+        var value = parseInt(learnedSkills.innerHTML);
+        learnedSkills.innerHTML = value + 1;
+        update();
+    }
+    function skillRemove() {
+        var value = parseInt(learnedSkills.innerHTML);
+        if (value > 0) {
+            learnedSkills.innerHTML = value - 1;
+        }
+        update()
+    }
+
+    // ----------Spell Count
+    function spellAdd() {
+        var value = parseInt(learnedSpells.innerHTML);
+        learnedSpells.innerHTML = value + 1;
+        update();
+    }
+    function spellRemove() {
+        var value = parseInt(learnedSpells.innerHTML);
+        if (value > 0) {
+            learnedSpells.innerHTML = value - 1;
+        }
+        update()
+    }
+
+    update()
+</script>

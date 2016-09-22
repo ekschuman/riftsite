@@ -1,0 +1,56 @@
+{% load staticfiles %}
+
+<link rel='stylesheet' type='text/css' href="{% static 'style.css' %}" />
+
+{% include 'header.html' %}
+
+<div class="content">
+    <div class="home subcontent">
+        <h4>Interested? Read through the <a href="{% url 'riftsite.views.guide_view' %}">getting started guide.</a></h4>
+        <h1>What is Rift?</h1>
+        <p>
+            Rift is a larp set in a medieval fantasy world in which the player will explore the land rediscovering lost treasures,
+            assisting its people in political and economical ventures and of course protecting the realm from terrible dangers.
+        </p>
+        <br>
+
+        <h1>What makes it special?</h1>
+        <p>
+            Rift is made by the players for the players. What this means is that the world and lore are set in such a way that the
+            players are really who create the world. Players will discover areas, trails, and creatures, and it's the players who
+            name them and give them a purpose.
+        </p>
+        <br>
+
+        <h1>Do you have props?</h1>
+        <p>
+            Rift has many items provided for you to use on your adventures. It's the little details that bring the world to life.
+        </p>
+        <br>
+
+        <h1>What can my character be?</h1>
+        <p>
+            In short, anything. Without races, classes, professions or anything else defining what you can and can not do how you
+            play the game is without limits. You create your own back story of who and what you were before you came here. You
+            can be yourself if you want to.
+        </p>
+        <br>
+
+        <h1>I don't like combat.</h1>
+        <p>
+            That's perfectly ok. Rift is a role play heavy larp, cheeky humor is at a minimum and serious role play is the center
+            of this game. Politics and sustaining the economy is an important factor and will need constant tending to keep things
+            afloat.
+        </p>
+        <br>
+
+        <h1>What happens if you die?</h1>
+        <p>
+            Death is a very real concept in Rift. When you die you will have 1 minute to be restored before your death can not be
+            undone. Upon death you lose recent memories, experience and learned skills. Once you have died 6 times on your 7th
+            your character's death is permanent, and you must create a new character.
+        </p>
+    </div>
+
+
+</div>

@@ -1,0 +1,259 @@
+{% load staticfiles %}
+
+<link rel='stylesheet' type='text/css' href="{% static 'style.css' %}" />
+
+{% include 'header.html' %}
+
+<div class="content">
+    <div class="skills subcontent">
+        <h1 align="center">Skills and Spells</h1>
+
+        <h2>Swords</h2>
+        Fast and agile, they fare well against lightly armoured opponents.
+        <div>
+            <h4>Skills:</h4>
+            <ul>
+                <li>Deep Cut -- +1 damage on a slashing attack.</li>
+                <li>Deep Thrust -- +1 damage on stab attack.</li>
+                <li>Break -- +1 break damage to shield.</li>
+                <li>Parry -- +1 damage on counter using a parry.</li>
+            </ul>
+        </div>
+
+        <h2>Axes</h2>
+        Require skill to wield and those capable will find disarming others easy.
+        <div>
+            <h4>Skills:</h4>
+            <ul>
+                <li>Hand Shock -- Hit on weapon causes 2-second recoil.</li>
+                <li>Disarm -- Weapon or shield caught in beard of axe is disarmed.</li>
+                <li>Deep Cut -- +1 on slash attack.</li>
+                <li>Shatter -- +1 damage to armour.</li>
+            </ul>
+        </div>
+
+        <h2>Blunt</h2>
+        Very slow but can break shields, armour and even bone.
+        <div>
+            <h4>Skills:</h4>
+            <ul>
+                <li>Handshock -- Hit on weapon causes 2 second recoil.</li>
+                <li>Break -- +1 damage to shield.</li>
+                <li>Shatter -- +1 damage on armour.</li>
+                <li>Bone Break -- Hit to limb without armour causes limb to break and be unuseable.</li>
+            </ul>
+        </div>
+
+        <h2>Great Weapon</h2>
+        <div>
+            <ul>
+                <li>Stagger -- any contact causes 2 second recoil.</li>
+            </ul>
+        </div>
+
+        <h2>Bow</h2>
+        If you can place the shot you will shift skirmishes quickly with a bow. Skills add an additional effect to the damage dealt.
+        <div>
+            <h4>Skills:</h4>
+            <ul>
+                <li>Deep Impact -- +1 damage.</li>
+                <li>Penetrating Shot -- 1 break/shatter damage on armour or shield. (Heavy bow exclusive)</li>
+                <li>Crippling Shot -- Hit on limb makes it unuseable for 5 seconds.</li>
+                <li>Staggering Shot -- Stagger for 2 seconds.</li>
+                <li>Sneak Shot -- +2 damage on hit if it is successful.</li>
+            </ul>
+        </div>
+
+        <h2>Pole Arm</h2>
+        Pole arms have the same skills as other melee weapons but with much more reach. They may also be up to 2 types
+        at once as long as they have the physical representation of the type of weapon skills you are wanting to use.
+
+        <h2>Shield</h2>
+        Shields will disperse spells and block physical damage.
+        <div>
+            <h4>Skills</h4>
+            <ul>
+                <li>Riposte -- +1 damage on counter attack after a riposte. (buckler and shield exclusive)</li>
+                <li>Fortress Stance -- your Greatshield doesn’t break down, you can not use skills or move in fortress
+                    stance. (Greatshield exclusive)</li>
+                <li>Bash -- Hitting shield to shield staggers for 2 seconds.</li>
+                <li>[Group Skill] Phalanx -- Shields do not break down, must hold a line and can not run or use other
+                    skills. (requires 3 people with shields)</li>
+            </ul>
+        </div>
+
+
+        <h2>Rod</h2>
+        Though not capable of using skills, spells requiring 1 hand can be cast through a rod.
+
+        <h2>Staff</h2>
+        Not capable of using skills, but any spell may be cast through a staff. However, if the spell requires both
+        hands you still need both hands on the staff.
+        <br>
+
+
+        <h1>Spells</h1>
+
+        <div>
+            Magic is broken into 3 categories: Miracles, Sorceries, and Elemental Magic.
+            <br>
+            Each has exclusive spells to master. Spells do not pass through shields but do pass through armour, and
+            a hit on a weapon counts.
+            <br>
+            Sorceries require Intelligence to cast and Miracles require Faith. Elemental
+            Magic can be cast by either.
+        </div>
+
+
+        <h2>Sorceries</h2>
+        Sorceries are learned through the Academy, and require Intelligence to progress.
+        <div>
+            <h4>Tier 1</h4>
+            <ul>
+                <li>Mana bolt -- 1 damage, free to cast.</li>
+                <li>Lock -- Stuck 5 seconds. 1 mana cast.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Tier 2</h4>
+            <ul>
+                <li>-- 2 mana to cast.</li>
+                <li>Silence -- player can not speak for 5 seconds.</li>
+                <li>Chameleon -- While immobile invisible for 10 seconds.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Tier 3</h4>
+            <ul>
+                <li>-- 3 mana to cast.</li>
+                <li>Flare -- Blinds all facing you for 10 seconds within 10 feet.</li>
+                <li>Conjure -- Conjure weapon, mana doesn’t regenerate from cast until banished.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Tier 4</h4>
+            <ul>
+                <li>Mana Siphon -- Drain 1 mana per second on touch.</li>
+                <li>Soul Siphon -- Drain 1 HP per second on touch.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Tier 5</h4>
+            <ul>
+                <li>Exchange -- Change HP to MP. (1 HP = 2 mana)</li>
+                <li>Raise -- Raise creature to health equivalent to mana spent up to creature maximum health, mana does not replenish until creature's death or is banished.</li>
+            </ul>
+        </div>
+
+        <h2>Miracles</h2>
+        Miracles are learned through the Church, and require Faith to progress.
+        <div>
+            <h4>Tier 1</h4>
+            <ul>
+                <li>-- 1 mana to cast.</li>
+                <li>Mana bolt -- 1 damage, free to cast.</li>
+                <li>Conjure Familiar- Familiar used to scout ahead.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Tier 2</h4>
+            <ul>
+                <li>-- 2 mana to cast.</li>
+                <li>Pacifism -- Hit player stops fighting for 10 seconds or until attacked.</li>
+                <li>Weapon Change -- Change weapon type, does not change class.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Tier 3</h4>
+            <ul>
+                <li>-- 3 mana to cast.</li>
+                <li>Magical Wall -- Dispels magic passing through wall for 10 seconds.</li>
+                <li>Mana Bomb -- Recoil 2x Mana spent in 10 feet radius.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Tier 4</h4>
+            <ul>
+                <li>-- 4 mana to cast.</li>
+                <li>Healing Hands -- Heal up to 5 Hp per 5 minutes.</li>
+                <li>Ward -- Immune to magic for 10 seconds.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Tier 5</h4>
+            <ul>
+                <li>-- 5 mana to cast.</li>
+                <li>Armoured Aura -- +2 AP(does not stack)</li>
+                <li>Mimic -- mimics 1 spell per quest, at same mana cost.</li>
+            </ul>
+        </div>
+
+        <h2>Elemental Magic</h2>
+        Elemental Magic is learned through the Church or the Academy, using the higher of your Faith or Intellignce.
+        <div>
+            <h4>Tier 1</h4>
+            <ul>
+                <li>-- 1 mana to cast.</li>
+                <li>Firebolt -- 2 damage.</li>
+                <li>Ice bolt -- 1 damage, target can not run for 5 seconds.</li>
+                <li>Lightning bolt -- 1 damage -1 mana on target.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Tier 2</h4>
+            <ul>
+                <li>-- 2 mana to cast.</li>
+                <li>Dispel -- Dispels effect on touch  (2 MP to cast)</li>
+                <li>Turn to stone -- Immobile and invincible for 5 seconds (2 MP to cast)</li>
+                <li>Freeze -- Frozen 5 seconds or until hit(2 MP to cast)</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Tier 3</h4>
+            <ul>
+                <li>-- 3 mana to cast.</li>
+                <li>Whirlwind -- Push 5, if collision with object or another creature or person 2 damage to target.</li>
+                <li>Storm -- Creates a 20 foot wide storm that blinds all inside that can't be seen through. Storm lasts 30 seconds.</li>
+                <li>Fire Wall -- 2 damage to all that pass through wall for 10 seconds.</li>
+                <li>Ice Wall -- A wall of ice that nothing can pass through for 10 seconds.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Tier 4</h4>
+            <ul>
+                <li>-- 4 mana to cast.</li>
+                <li>Lightning Spear -- 2 damage -2 mana to target.</li>
+                <li>Ice Spear -- 2 damage and target is frozen for 5 seconds.</li>
+                <li>Fire Spear --4 damage.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Tier 5</h4>
+            <ul>
+                <li>-- 5 mana to cast.</li>
+                <li>Summon Fire Atronach -- Summon an atronach with 5 HP, can cast fire bolt equal to mana used to cast
+                    atronach -2 (e.g if you use 5 mana to cast the atronach it can cast 3 times) takes 30 seconds to
+                    summon atronach, only 1 atronach can be summoned at a time.</li>
+                <li>Summon Ice Atronach - Summon atronach with 5 hp, can cast ice bolt equal to mana used to cast
+                    atronach -2(e.g if you use 5 mana to cast the atronach it can cast 3 times) takes 30 seconds to
+                    summon atronach, only 1 atronach can be summoned at a time.</li>
+                <li>Summon Lightning Atronach -- Summon atronach with 5 HP, can cast Lightning bolt equal to mana used to
+                    cast atronach -2.(e.g if you use 5 mana to cast the atronach it can cast 3 times) takes 30 seconds
+                    to summon atronach, only 1 atronach can be summoned at a time.</li>
+            </ul>
+        </div>
+
+    </div>
+</div>

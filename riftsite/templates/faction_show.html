@@ -1,0 +1,33 @@
+{% load staticfiles %}
+
+<link rel='stylesheet' type='text/css' href="{% static 'style.css' %}" />
+
+{% include 'header.html' %}
+
+<div class="content">
+    <div class="faction_show subcontent">
+        <div style="text-align: left; font-size: 75%;">
+            <a href="{% url 'riftsite.views.factions_view' %}"><< Factions</a>
+        </div>
+
+        <h2 align="center">{{faction.name}}</h2>
+        <div style="width: 49%; display: inline-block; vertical-align: top;">
+            <h4 align="center">Description</h4>
+            {{faction.description}}
+        </div>
+        <div style="width: 10%; display: inline-block;">
+
+        </div>
+        <div style="width: 39%; display: inline-block; vertical-align: top;">
+            <h4 style="margin-left: 20px;">Ranks</h4>
+            <ul>
+                {% for rank in ranks %}
+                    <li>{{rank.rank_level}} -- {{rank.name}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+
+
+    </div>
+</div>

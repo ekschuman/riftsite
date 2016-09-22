@@ -1,0 +1,16 @@
+{% load staticfiles %}
+
+<link rel='stylesheet' type='text/css' href="{% static 'style.css' %}" />
+
+{% include 'header.html' %}
+
+<div class="content">
+    <div class="subcontent">
+        <h2>Registration</h2>
+
+        <form action="/register/" method="post">{% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Register" />
+        </form>
+    </div>
+</div>
