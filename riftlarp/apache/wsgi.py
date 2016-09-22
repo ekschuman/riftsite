@@ -8,7 +8,7 @@ sys.path.append(workspace)
 sys.path.append(project)
 
 
-sys.path.append("/home/sekkiru/larpsite")
+sys.path.append("/home/sekkiru/riftsite")
 os.environ['DJANGO_SETTINGS_MODULE'] = 'riftlarp.apache.override'
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
