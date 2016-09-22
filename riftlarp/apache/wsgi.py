@@ -7,7 +7,7 @@ workspace = os.path.dirname(project)
 sys.path.append(workspace)
 sys.path.append(project)
 
-sys.path.append("/home/sekkiru/anaconda/bin")
+sys.path.insert(0, "/home/sekkiru/anaconda/bin")
 sys.path.append("/home/sekkiru/riftsite")
 os.environ['DJANGO_SETTINGS_MODULE'] = 'riftlarp.apache.override'
 from django.core.wsgi import get_wsgi_application
