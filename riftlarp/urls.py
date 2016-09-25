@@ -20,20 +20,23 @@ import riftsite.views
 from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
 
+with open("/tmp/riffle", "a+") as file:
+	file.write(str(riftsite.views.__dict__))
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^lore/', riftsite.views.lore_view),
-    url(r'^stats/', riftsite.views.stats_view),
-    url(r'^skills', riftsite.views.skills_view),
-    url(r'^guide', riftsite.views.guide_view),
-    url(r'^codex/', riftsite.views.codex_view),
+    url(r'^lore/', riftsite.views.lore_view, name="lore_view"),
+    url(r'^stats/', riftsite.views.stats_view, name="stats_view"),
+    url(r'^skills', riftsite.views.skills_view, name="skills_view"),
+    url(r'^guide', riftsite.views.guide_view, name='guide_view'),
+    url(r'^codex/', riftsite.views.codex_view, name="codex_view"),
     url(r'^factions/(?P<faction_id>[0-9]+)/$', riftsite.views.faction_show, name='faction_show'),
-    url(r'^factions/', riftsite.views.factions_view),
+    url(r'^factions/', riftsite.views.factions_view, name="factions_view"),
     url(r'^characters/(?P<char_id>[0-9]+)/$', riftsite.views.character_show, name='character_show'),
-    url(r'^characters/', riftsite.views.characters_view),
-    url(r'^login/$', django.contrib.auth.views.login),
-    url(r'^logout/$', django.contrib.auth.views.logout),
+    url(r'^characters/', riftsite.views.characters_view, name="characters_view"),
+    url(r'^login/$', django.contrib.auth.views.login, name="login"),
+    url(r'^logout/$', django.contrib.auth.views.logout, name="logout"),
     url(r'^register/$', riftsite.views.register, name='register'),
     url(r'^register/complete/$', riftsite.views.registration_complete, name='registration_complete'),
-    url(r'^', riftsite.views.home_view),
+    url(r'^', riftsite.views.home_view, name='home_view'),
 ]

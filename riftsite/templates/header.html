@@ -3,17 +3,17 @@
         R &nbsp I &nbsp F &nbsp T
     </div>
     <!--Having the closing 'div' tag on a different line from the next opening causes a gap in the buttons-->
-    <a href="{% url 'riftsite.views.home_view' %}"><div class="header_button first_button">Home
-    </div></a><a href="{% url 'riftsite.views.guide_view' %}"><div class="header_button">Guide
-    </div></a><a href="{% url 'riftsite.views.lore_view' %}"><div class="header_button">Lore
-    </div></a><a href="{% url 'riftsite.views.codex_view' %}"><div class="header_button">Codex
-    </div></a><a href="{% url 'riftsite.views.factions_view' %}"><div class="header_button">Factions
-    </div></a><a href="{% url 'riftsite.views.characters_view' %}"><div class="header_button">Characters
-    </div></a><a href="{% url 'riftsite.views.stats_view' %}"><div class="header_button">Stats
+    <a href="{% url 'home_view' %}"><div class="header_button first_button">Home
+    </div></a><a href="{% url 'guide_view' %}"><div class="header_button">Guide
+    </div></a><a href="{% url 'lore_view' %}"><div class="header_button">Lore
+    </div></a><a href="{% url 'codex_view' %}"><div class="header_button">Codex
+    </div></a><a href="{% url 'factions_view' %}"><div class="header_button">Factions
+    </div></a><a href="{% url 'characters_view' %}"><div class="header_button">Characters
+    </div></a><a href="{% url 'stats_view' %}"><div class="header_button">Stats
     {% if user.is_anonymous %}
-    </div></a><a href="{% url 'django.contrib.auth.views.login' %}"><div class="header_button last_button">Login</div></a>
+    </div></a><a href="{% url 'login' %}"><div class="header_button last_button">Login</div></a>
     {% else %}
-    </div></a><a href="{% url 'django.contrib.auth.views.logout' %}"><div class="header_button last_button">Logout</div></a>
+    </div></a><a href="{% url 'logout' %}"><div class="header_button last_button">Logout</div></a>
     {% endif %}
 
     <br>
